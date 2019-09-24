@@ -208,7 +208,7 @@
                                     <tr>
                                         <td scope="col">Actividad principal </td>
                                         <td scope="col">
-                                                <select class="browser-default custom-select">
+                                                <select class="browser-default custom-select" formControlName="country">
                                                         <option value="" disabled selected>SELECCIONE UNA OPCIÓN</option>
                                                         <option id="a tiempo" name="checks" value="a tiempo">Agricultores</option>
                                                         <option id="a tiempo" name="checks" value="a tiempo">Pescadores</option>
@@ -932,9 +932,9 @@
                                 <tr>
                                     <td scope="col">Puntualidad en los pagos :</td>
                                     <td scope="col">
-                                        <select class="browser-default custom-select">
+                                        <select class="browser-default custom-select" formControlName="puntualidad">
                                             <option value="" disabled selected>SELECCIONE UNA OPCIÓN</option>
-                                            <option id="a tiempo" name="checks" value="a tiempo">A tiempo</option>
+                                            <option id="a tiempo" name="checks" value="a tiempo" [(ngModel)]="reporteExpress.puntualidad"> A tiempo</option>
 
                                         </select>
                                         <span class="text-danger"
