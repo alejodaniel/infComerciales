@@ -1,0 +1,2077 @@
+<div style="text-align: right" class=" container p-3 ">
+    <img id="logo" src="../../assets/img/logo1.jpg" />
+</div>
+<div class=" container p-3 ">
+    <h1 align="center" id="color">REPORTE DE INFORMACION COMERCIAL</h1>
+</div>
+
+<div class=" container p-3 ">
+    <div class="row ">
+        <div class="form-group col-6" style="text-align: center">
+            <label for="start">Fecha de Elaboracion: </label>
+
+            <input type="date" id="start" name="trip-start" value="aaaa-mm-dd" min="2018-01-01" max="2050-12-31"
+                [(ngModel)]="formularioExpress.fecha">
+
+
+        </div>
+        <div class="form-group col-6" style="text-align: center">
+            <p><b>Solicitante:</b> <input class="form-control" [(ngModel)]="formularioExpress.solicitante" type="text ">
+
+
+        </div>
+        <div class="col-12 ">
+            <div class="alert alert-danger " align="center" role="alet "><em>
+                    <h2>REPORTE EXPRESS</h2>
+                </em></div><br>
+            <form [formGroup]="reporteExpress" (ngSubmit)="addReporteExpress()" novalidate>
+                <div class="card ">
+                    <div class="card-header text-white bg-dark "><img src="../../assets/img/documento.png" />&nbsp;
+                        <b>DATOS DEL PROVEEDOR A SER EVALUADO</b></div>
+                    <div class="card-body ">
+                        <div class="row ">
+
+                            <table class="table table-bordered" id="tableColor">
+
+                                <tbody>
+                                    <tr>
+
+                                        <td scope="col">Razón Social</td>
+                                        <td scope="col">
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.razonSocialExpress"
+                                                formControlName="razonSocialExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('razonSocialExpress').errors && reporteExpress.get('razonSocialExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('razonSocialExpress').hasError('required')">
+                                                    <font size="2">Razón Social es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('razonSocialExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('razonSocialExpress').hasError('maxlength')">
+                                                    <font size="2">Maximo de 30 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['razonSocialExpress'].touched && reporteExpress.controls['razonSocialExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td scope="col">Nombre Comercial</td>
+                                        <td scope="col">
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.nombreComercialExpress"
+                                                formControlName="nombreComercialExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('nombreComercialExpress').errors && reporteExpress.get('nombreComercialExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('nombreComercialExpress').hasError('required')">
+                                                    <font size="2">Nombre Comercial es requerido</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('nombreComercialExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('nombreComercialExpress').hasError('maxlength')">
+                                                    <font size="2">Maximo de 30 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['nombreComercialExpress'].touched && reporteExpress.controls['nombreComercialExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">RUC</td>
+                                        <td scope="col">
+                                            <input class="form-control " [(ngModel)]="formularioExpress.rucExpress"
+                                                formControlName="rucExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('rucExpress').errors && reporteExpress.get('rucExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('rucExpress').hasError('required')">
+                                                    <font size="2">Ruc es requerido</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('rucExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 13 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('rucExpress').hasError('maxlength')">
+                                                    <font size="2">Maximo de 13 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['rucExpress'].touched && reporteExpress.controls['rucExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo ocupa carecteres numéricos"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Forma Legal</td>
+                                        <td scope="col">
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.formaLegalExpress"
+                                                formControlName="formaLegalExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('formaLegalExpress').errors && reporteExpress.get('formaLegalExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('formaLegalExpress').hasError('required')">
+                                                    <font size="2">Forma Legal es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('formaLegalExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('formaLegalExpress').hasError('maxlength')">
+                                                    <font size="2">Maximo de 30 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['formaLegalExpress'].touched && reporteExpress.controls['formaLegalExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Estado</td>
+                                        <td scope="col">
+                                            <input class="form-control " [(ngModel)]="formularioExpress.estadoExpress"
+                                                formControlName="estadoExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('estadoExpress').errors && reporteExpress.get('estadoExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('estadoExpress').hasError('required')">
+                                                    <font size="2">Estado es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('estadoExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 6 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('estadoExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 8 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['estadoExpress'].touched && reporteExpress.controls['estadoExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="col">Inicio de actividades</td>
+                                        <td scope="col">
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.inicioActividadesExpress"
+                                                formControlName="inicioActividadesExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('inicioActividadesExpress').errors && reporteExpress.get('inicioActividadesExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('inicioActividadesExpress').hasError('required')">
+                                                    <font size="2">Incio de actividades es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('inicioActividadesExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('inicioActividadesExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Actividad principal </td>
+                                        <td scope="col">
+                                                <select class="browser-default custom-select">
+                                                        <option value="" disabled selected>SELECCIONE UNA OPCIÓN</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Agricultores</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Pescadores</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Ganaderos</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Avicultores</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Mineros</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Transportistas</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Microindustriales</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Restaurantes y Hoteles</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Servicios de Construcción</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Trabajadores Autónomos</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Comerciantes Minoristas</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Otros servicios en General</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">Otros microempresarios en general</option>
+                                                        
+                                                    </select>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Provincia/Ciudad </td>
+                                        <td scope="col">
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.provinciaCiudadExpress"
+                                                formControlName="provinciaCiudadExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('provinciaCiudadExpress').errors && reporteExpress.get('provinciaCiudadExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('provinciaCiudadExpress').hasError('required')">
+                                                    <font size="2">Provincia/Ciudad es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('provinciaCiudadExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('provinciaCiudadExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['provinciaCiudadExpress'].touched && reporteExpress.controls['provinciaCiudadExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Dirección </td>
+                                        <td scope="col">
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.direccionExpress"
+                                                formControlName="direccionExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('direccionExpress').errors && reporteExpress.get('direccionExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('direccionExpress').hasError('required')">
+                                                    <font size="2">Dirección es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('direccionExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('direccionExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Sucursales </td>
+                                        <td scope="col">
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.sucursalesExpress"
+                                                formControlName="sucursalesExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('sucursalesExpress').errors && reporteExpress.get('sucursalesExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('sucursalesExpress').hasError('required')">
+                                                    <font size="2">Sucursales es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('sucursalesExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('sucursalesExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['sucursalesExpress'].touched && reporteExpress.controls['sucursalesExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Teléfonos/fax </td>
+                                        <td scope="col">
+                                            <input class="form-control " [(ngModel)]="formularioExpress.telefonoExpress"
+                                                formControlName="telefonoExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('telefonoExpress').errors && reporteExpress.get('telefonoExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('telefonoExpress').hasError('required')">
+                                                    <font size="2">Teléfono es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('telefonoExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 7 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('telefonoExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 10 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['telefonoExpress'].touched && reporteExpress.controls['telefonoExpress'].hasError('pattern')">
+                                                    <font size="2">Este campo debe contener caracters numéricos"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Página web/Correo electrónico</td>
+                                        <td scope="col">
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.paginaCorreoExpress"
+                                                formControlName="paginaCorreoExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('paginaCorreoExpress').errors && reporteExpress.get('paginaCorreoExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('paginaCorreoExpress').hasError('required')">
+                                                    <font size="2">Página Web es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('paginaCorreoExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 10 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('paginaCorreoExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card ">
+                    <div class="card-header text-white bg-dark "><img src="../../assets/img/documento.png" />&nbsp;
+                        <b>INFORMACIÓN DESTACADA</b></div>
+                    <div class="card-body ">
+                        <div class="row">
+                            <table class="table table-bordered" id="tableColor">
+
+                                <tbody>
+                                    <tr>
+
+                                        <td scope="col">Representante Legal </td>
+                                        <td scope="col" COLSPAN=2>
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.representanteLegalExpress"
+                                                formControlName="representanteLegalExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('representanteLegalExpress').errors && reporteExpress.get('representanteLegalExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('representanteLegalExpress').hasError('required')">
+                                                    <font size="2">Representante Legal es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('representanteLegalExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('representanteLegalExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['representanteLegalExpress'].touched && reporteExpress.controls['representanteLegalExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td scope="col">Persona de contacto</td>
+                                        <td scope="col" COLSPAN=2>
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.personaContactoExpress"
+                                                formControlName="personaContactoExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('personaContactoExpress').errors && reporteExpress.get('personaContactoExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('personaContactoExpress').hasError('required')">
+                                                    <font size="2">Persona de Contacto es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('personaContactoExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('personaContactoExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['personaContactoExpress'].touched && reporteExpress.controls['personaContactoExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Cargo</td>
+                                        <td scope="col" COLSPAN=2>
+
+                                            <select class="browser-default custom-select">
+                                                <option value="" disabled selected>SELECCIONE UNA OPCIÓN</option>
+                                                <option id="a tiempo" name="checks" value="a tiempo">Gerente General</option>
+                                                <option id="a tiempo" name="checks" value="a tiempo">Presidente</option>
+                                                <option id="a tiempo" name="checks" value="a tiempo">Contador</option>
+                                            </select>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Empresas Relacionadas</td>
+                                        <td scope="col" COLSPAN=2>
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.empresasRelacionadasExpress"
+                                                formControlName="empresasRelacionadasExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('empresasRelacionadasExpress').errors && reporteExpress.get('empresasRelacionadasExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('empresasRelacionadasExpress').hasError('required')">
+                                                    <font size="2">Empresa Relacionada es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('empresasRelacionadasExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('empresasRelacionadasExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.controls['empresasRelacionadasExpress'].touched && reporteExpress.controls['empresasRelacionadasExpress'].hasError('pattern')">
+                                                    <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                                    </font>
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td scope="col">Número de Empleados</td>
+                                        <td scope="col" COLSPAN=2>
+                                                <select class="browser-default custom-select">
+                                                        <option value="" disabled selected>SELECCIONE UNA OPCIÓN</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">0-10</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">10-20</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">20-30</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">30-40</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">40-50</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">50-60</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">60-70</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">70-80</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">80-90</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">90-100</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">100-110</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">110-120</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">120-130</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">130-140</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">140-150</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">150-160</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">160-170</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">170-180</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">180-190</option>
+                                                        <option id="a tiempo" name="checks" value="a tiempo">190-200</option>
+                                                    </select>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Pago Impuesto a la Renta </td>
+                                        <td>
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.pagoRentaUnoExpress"
+                                                formControlName="pagoRentaUnoExpress" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('pagoRentaUnoExpress').errors && reporteExpress.get('pagoRentaUnoExpress').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('pagoRentaUnoExpress').hasError('required')">
+                                                    <font size="2">Pago Impuesto a la Renta es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('pagoRentaUnoExpress').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('pagoRentaUnoExpress').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+
+                                            </div>
+                                        </td>
+
+                                    <tr>
+                                        <td>Impuesto a la salida de Divisas</td>
+                                        <td>
+                                            <input class="form-control "
+                                                [(ngModel)]="formularioExpress.impuestoDivisasExpressUno"
+                                                formControlName="impuestoDivisasExpressUno" type="text ">
+                                            <div
+                                                *ngIf="reporteExpress.get('impuestoDivisasExpressUno').errors && reporteExpress.get('impuestoDivisasExpressUno').dirty">
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('impuestoDivisasExpressUno').hasError('required')">
+                                                    <font size="2">Impuesto a la salidade Divisas es requerida</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('impuestoDivisasExpressUno').hasError('minlength')">
+                                                    <font size="2">Minimo de 3 Caracteres</font>
+                                                </p>
+                                                <p class="text-danger"
+                                                    *ngIf="reporteExpress.get('impuestoDivisasExpressUno').hasError('maxlength')">
+                                                    <font size="2">Maximon de 30 Caracteres</font>
+                                                </p>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-header text-white bg-dark "><img src="../../assets/img/documento.png" />&nbsp;
+                        <b>VALUACIÓN CREDITICIA - COMERCIAL DE LA EMPRESA</b></div>
+                    <div class="card-body ">
+                        <div class="row">
+                            <table class="table table-bordered" id="tableColor">
+
+                                <tbody>
+                                    <tr style="text-align:center;">
+
+                                        <td COLSPAN=3 id="critico" (dblclick)="quitarColorCritico()"
+                                            (click)="cambiarColorCritico()"><b>CRITICO</b></td>
+                                        <td COLSPAN=3 id="riesgoso" (dblclick)="quitarColorRiesgoso()"
+                                            (click)="cambiarColorRiesgoso()"><b>RIESGOSO</b></td>
+                                        <td COLSPAN=3 id="confiable" (dblclick)="quitarColorConfiable()"
+                                            (click)="cambiarColorConfiable()"><b>CONFIABLE</b> </td>
+                                        <td COLSPAN=2 id="notable" (dblclick)="quitarColorNotable()"
+                                            (click)="cambiarColorNotable()"><b>NOTABLE</b> </td>
+
+                                    </tr>
+
+                                    <tr style="text-align:center;">
+
+                                        <td id="0" (click)="textoRojo0()" (dblclick)="quitarColor0()">0</td>
+                                        <td id="1" (click)="textoRojo1()" (dblclick)="quitarColor1()">1</td>
+                                        <td id="2" (click)="textoRojo2()" (dblclick)="quitarColor2()">2</td>
+                                        <td id="3" (click)="textoRojo3()" (dblclick)="quitarColor3()">3</td>
+                                        <td id="4" (click)="textoRojo4()" (dblclick)="quitarColor4()">4</td>
+                                        <td id="5" (click)="textoRojo5()" (dblclick)="quitarColor5()">5</td>
+                                        <td id="6" (click)="textoRojo6()" (dblclick)="quitarColor6()">6</td>
+                                        <td id="7" (click)="textoRojo7()" (dblclick)="quitarColor7()">7</td>
+                                        <td id="8" (click)="textoRojo8()" (dblclick)="quitarColor8()">8</td>
+                                        <td id="9" (click)="textoRojo9()" (dblclick)="quitarColor9()">9</td>
+                                        <td id="10" (click)="textoRojo10()" (dblclick)="quitarColor10()">10</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!-- Segunda parte -->
+                <div class="alert alert-danger " id="center" role="alert "><em>
+                        Score: Score: Recomendamos mantener relaciones comerciales a largo plazo con este cliente
+                    </em>
+                </div>
+                <div class="card-header text-white bg-dark "><img src="../../assets/img/escritura.png" />&nbsp;<b>MÓNTOS
+                        DE CRÉDITO</b>
+                </div>
+                <table class="table table-bordered" id="tableColor">
+
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center;"><b>REQUERIDO POR EL CLIENTE</b> </td>
+                            <td style="text-align:center;"><b>REQUERIDO POR SERVIRATING</b> </td>
+                        </tr>
+                        <tr style="text-align:center;">
+                            <td><input class="form-control " [(ngModel)]="formularioExpress.requeridoClienteExpress"
+                                    formControlName="requeridoClienteExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('requeridoClienteExpress').errors && reporteExpress.get('requeridoClienteExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('requeridoClienteExpress').hasError('required')">
+                                        <font size="2">Requerido por el cliente es requerida</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('requeridoClienteExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('requeridoClienteExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+
+                                </div>
+                            </td>
+                            <td><input class="form-control " [(ngModel)]="formularioExpress.requeridoServiratingExpress"
+                                    formControlName="requeridoServiratingExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('requeridoServiratingExpress').errors && reporteExpress.get('requeridoServiratingExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('requeridoServiratingExpress').hasError('required')">
+                                        <font size="2">Requerido por Servirating es requerida</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('requeridoServiratingExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('requeridoServiratingExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="text-align:center;">
+
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <div class="alert alert-danger " id="center" role="alert "><em>Recuerde llenar los espacios cuando
+                        se solicite que describa</em>
+                </div>
+                <div class="card-header text-white bg-dark "><img
+                        src="../../assets/img/referencia.png" />&nbsp;<b>REFERENCIA COMERCIAL / DE SU PROVEEDOR</b>
+                </div>
+                <div class="card-body ">
+                    <div class="row ">
+                        <table class="table table-bordered" id="tableColor">
+                            <tbody>
+                                <tr>
+
+                                    <td scope="col">Nombre :</td>
+                                    <td scope="col">
+                                        <input class="form-control "
+                                            [(ngModel)]="formularioExpress.nombreReferenciaExpress"
+                                            formControlName="nombreReferenciaExpress" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('nombreReferenciaExpress').errors && reporteExpress.get('nombreReferenciaExpress').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('nombreReferenciaExpress').hasError('required')">
+                                                <font size="2">Nombre de Referencia es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('nombreReferenciaExpress').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('nombreReferenciaExpress').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.controls['nombreReferenciaExpress'].touched && reporteExpress.controls['nombreReferenciaExpress'].hasError('pattern')">
+                                                <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                </font>
+                                            </p>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+
+                                    <td scope="col">Dirección :</td>
+                                    <td scope="col">
+                                        <input class="form-control "
+                                            [(ngModel)]="formularioExpress.direccionReferenciaExpress"
+                                            formControlName="direccionReferenciaExpress" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('direccionReferenciaExpress').errors && reporteExpress.get('direccionReferenciaExpress').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('direccionReferenciaExpress').hasError('required')">
+                                                <font size="2">Dirección es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('direccionReferenciaExpress').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('direccionReferenciaExpress').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="col">Teléfono :</td>
+                                    <td scope="col">
+                                        <input class="form-control "
+                                            [(ngModel)]="formularioExpress.telefonoReferenciaExpress"
+                                            formControlName="telefonoReferenciaExpress" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('telefonoReferenciaExpress').errors && reporteExpress.get('telefonoReferenciaExpress').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('telefonoReferenciaExpress').hasError('required')">
+                                                <font size="2">Teléfono es requerido</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('telefonoReferenciaExpress').hasError('minlength')">
+                                                <font size="2">Minimo de 7 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('telefonoReferenciaExpress').hasError('maxlength')">
+                                                <font size="2">Maximon de 10 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.controls['telefonoReferenciaExpress'].touched && reporteExpress.controls['telefonoReferenciaExpress'].hasError('pattern')">
+                                                <font size="2"> Este campo debe contener caracteres numéricos"
+                                                </font>
+                                            </p>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="col">Contacto :</td>
+                                    <td scope="col">
+                                        <input class="form-control "
+                                            [(ngModel)]="formularioExpress.contactoReferenciaExpress"
+                                            formControlName="contactoReferenciaExpress" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('contactoReferenciaExpress').errors && reporteExpress.get('contactoReferenciaExpress').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('contactoReferenciaExpress').hasError('required')">
+                                                <font size="2">Contacto es requerido</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('contactoReferenciaExpress').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('contactoReferenciaExpress').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.controls['contactoReferenciaExpress'].touched && reporteExpress.controls['contactoReferenciaExpress'].hasError('pattern')">
+                                                <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                </font>
+                                            </p>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="col">Línea de Crédito</td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.lineaCreditoExpress"
+                                            formControlName="lineaCreditoExpress" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('lineaCreditoExpress').errors && reporteExpress.get('lineaCreditoExpress').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('lineaCreditoExpress').hasError('required')">
+                                                <font size="2">Línea de Crédito es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('lineaCreditoExpress').hasError('minlength')">
+                                                <font size="2">Minimo de 7 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('lineaCreditoExpress').hasError('maxlength')">
+                                                <font size="2">Maximon de 7 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.controls['lineaCreditoExpress'].touched && reporteExpress.controls['lineaCreditoExpress'].hasError('pattern')">
+                                                <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                </font>
+                                            </p>
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <td scope="col">Pagos</td>
+                                    <td scope="col">
+                                        <input class="form-control "
+                                            [(ngModel)]="formularioExpress.pagosReferenciaExpress"
+                                            formControlName="pagosReferenciaExpress" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('pagosReferenciaExpress').errors && reporteExpress.get('pagosReferenciaExpress').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('pagosReferenciaExpress').hasError('required')">
+                                                <font size="2">Pagos es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('pagosReferenciaExpress').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('pagosReferenciaExpress').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="col">Producto / Servicio</td>
+                                    <td scope="col">
+                                        <input class="form-control "
+                                            [(ngModel)]="formularioExpress.productoServicioReferenciaExpress"
+                                            formControlName="productoServicioReferenciaExpress" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('productoServicioReferenciaExpress').errors && reporteExpress.get('productoServicioReferenciaExpress').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('productoServicioReferenciaExpress').hasError('required')">
+                                                <font size="2">Producto/Servicio es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('productoServicioReferenciaExpress').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('productoServicioReferenciaExpress').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.controls['productoServicioReferenciaExpress'].touched && reporteExpress.controls['productoServicioReferenciaExpress'].hasError('pattern')">
+                                                <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                                </font>
+                                            </p>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="col">Cliente desde</td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.clienteDesdeExpress"
+                                            formControlName="clienteDesdeExpress" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('clienteDesdeExpress').errors && reporteExpress.get('clienteDesdeExpress').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('clienteDesdeExpress').hasError('required')">
+                                                <font size="2">Cliente desde es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('clienteDesdeExpress').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('clienteDesdeExpress').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.controls['clienteDesdeExpress'].touched && reporteExpress.controls['clienteDesdeExpress'].hasError('pattern')">
+                                                <font size="2"> Este campo debe contener caracteres entre "A-Za-z"
+                                                </font>
+                                            </p>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="col">Compra Mensual</td>
+                                    <td scope="col">
+                                        <input class="form-control "
+                                            [(ngModel)]="formularioExpress.compraMensualExpress"
+                                            formControlName="compraMensualExpress" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('compraMensualExpress').errors && reporteExpress.get('compraMensualExpress').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('compraMensualExpress').hasError('required')">
+                                                <font size="2">Compra Mensual es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('compraMensualExpress').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('compraMensualExpress').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="col">Puntualidad en los pagos :</td>
+                                    <td scope="col">
+                                        <select class="browser-default custom-select">
+                                            <option value="" disabled selected>SELECCIONE UNA OPCIÓN</option>
+                                            <option id="a tiempo" name="checks" value="a tiempo">A tiempo</option>
+
+                                        </select>
+                                        <span class="text-danger"
+                                            *ngIf="reporteExpress.controls['puntualidad'].touched && reporteExpress.controls['puntualidad'].hasError('required')">
+                                            Seleccione una opción! </span>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card-header text-white bg-dark "><img
+                        src="../../assets/img/referencia.png" />&nbsp;<b>OBLIGACIONES LEGALES</b>
+                </div>
+                <div class="card ">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <label><b>Se encuentra al día con sus obligaciones tributarias (SRI)</b></label><br>
+
+                            </div>
+                            <div class="col-lg-4"><br>
+                                <div class="form-check form-check-inline-col8">
+                                    <input type="radio" id="checksSi" name="checks" value="SI" formControlName="checks"
+                                        [(ngModel)]="formularioExpress.checks">SI<br>
+                                    <input type="radio" id="checksNo" name="checks" value="NO" formControlName="checks"
+                                        [(ngModel)]="formularioExpress.checks">NO<br>
+                                    <br>
+                                    <span class="text-danger"
+                                        *ngIf="reporteExpress.controls['checks'].touched && reporteExpress.controls['checks'].hasError('required')">
+                                        Seleccione una opción! </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+
+                    </div>
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <label><b>Se encuentra al día en sus obligaciones patronales (IESS)</b></label><br>
+                            </div>
+                            <div class="col-lg-4"><br>
+                                <div class="form-check form-check-inline-col8">
+                                    <input type="radio" id="checksSi" name="checks1" value="SI"
+                                        formControlName="checks1" [(ngModel)]="formularioExpress.checks1">SI<br>
+                                    <input type="radio" id="checksNo" name="checks1" value="NO"
+                                        formControlName="checks1" [(ngModel)]="formularioExpress.checks1">NO<br>
+                                    <br>
+                                    <span class="text-danger"
+                                        *ngIf="reporteExpress.controls['checks1'].touched && reporteExpress.controls['checks1'].hasError('required')">
+                                        Seleccione una opción! </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <label><b>Se encuentra al día en Superintendencia de Compañías</b></label><br>
+
+                            </div>
+                            <div class="col-lg-4"><br>
+                                <select class="browser-default custom-select">
+                                    <option value="" disabled selected>SELECCIONE UNA OPCIÓN</option>
+                                    <option value="1">Si</option>
+                                    <option value="2">No</option>
+                                    <option value="3">No Aplica</option>
+                                </select>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <br>
+                <div class="card-header text-white bg-dark "><img
+                        src="../../assets/img/referencia.png" />&nbsp;<b>LISTADO PROCESOS JUDICIALES</b>
+                </div>
+                <table class="table table-bordered" id="tableColor">
+
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center;"><b>PROCESO(S) JUDICIAL(ES)</b> </td>
+                            <td style="text-align:center;"><b>ACCION(ES)/DELITO(S)</b> </td>
+                        </tr>
+
+                        <tr style="text-align:center;">
+                            <td>
+                                <div class="form-group">
+                                    <textarea class="form-control rounded-0" formControlName="procesosJudicialesExpress"
+                                        [(ngModel)]="formularioExpress.procesosJudicialesExpress" rows="3"></textarea>
+                                    <div
+                                        *ngIf="reporteExpress.get('procesosJudicialesExpress').errors && reporteExpress.get('procesosJudicialesExpress').dirty">
+                                        <p class="text-danger"
+                                            *ngIf="reporteExpress.get('procesosJudicialesExpress').hasError('required')">
+                                            <font size="2">Procesos(s) Judicial(es) es requerida</font>
+                                        </p>
+                                        <p class="text-danger"
+                                            *ngIf="reporteExpress.get('procesosJudicialesExpress').hasError('minlength')">
+                                            <font size="2">Minimo de 3 Caracteres</font>
+                                        </p>
+                                        <p class="text-danger"
+                                            *ngIf="reporteExpress.get('procesosJudicialesExpress').hasError('maxlength')">
+                                            <font size="2">Maximon de 30 Caracteres</font>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <textarea class="form-control rounded-0" formControlName="accionesDelitosExpress"
+                                        [(ngModel)]="formularioExpress.accionesDelitosExpress" rows="3"></textarea>
+                                    <div
+                                        *ngIf="reporteExpress.get('accionesDelitosExpress').errors && reporteExpress.get('accionesDelitosExpress').dirty">
+                                        <p class="text-danger"
+                                            *ngIf="reporteExpress.get('accionesDelitosExpress').hasError('required')">
+                                            <font size="2">Accion(es)/Delito(s) es requerida</font>
+                                        </p>
+                                        <p class="text-danger"
+                                            *ngIf="reporteExpress.get('accionesDelitosExpress').hasError('minlength')">
+                                            <font size="2">Minimo de 3 Caracteres</font>
+                                        </p>
+                                        <p class="text-danger"
+                                            *ngIf="reporteExpress.get('accionesDelitosExpress').hasError('maxlength')">
+                                            <font size="2">Maximon de 30 Caracteres</font>
+                                        </p>
+                                        <p class="text-danger"
+                                            *ngIf="reporteExpress.controls['accionesDelitosExpress'].touched && reporteExpress.controls['accionesDelitosExpress'].hasError('pattern')">
+                                            <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                            </font>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="card-header text-white bg-dark "><img
+                        src="../../assets/img/referencia.png" />&nbsp;<b>INFORMACIÓN RELEVANTE</b>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control rounded-0" formControlName="informacionRelevanteExpress"
+                        [(ngModel)]="formularioExpress.informacionRelevanteExpress" rows="3"></textarea>
+                    <div
+                        *ngIf="reporteExpress.get('informacionRelevanteExpress').errors && reporteExpress.get('informacionRelevanteExpress').dirty">
+                        <p class="text-danger"
+                            *ngIf="reporteExpress.get('informacionRelevanteExpress').hasError('required')">
+                            <font size="2">Información Relevante es requerida</font>
+                        </p>
+                        <p class="text-danger"
+                            *ngIf="reporteExpress.get('informacionRelevanteExpress').hasError('minlength')">
+                            <font size="2">Minimo de 3 Caracteres</font>
+                        </p>
+                        <p class="text-danger"
+                            *ngIf="reporteExpress.get('informacionRelevanteExpress').hasError('maxlength')">
+                            <font size="2">Maximon de 30 Caracteres</font>
+                        </p>
+                        <p class="text-danger"
+                            *ngIf="reporteExpress.controls['informacionRelevanteExpress'].touched && reporteExpress.controls['informacionRelevanteExpress'].hasError('pattern')">
+                            <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                            </font>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="card-header text-white bg-dark "><img
+                        src="../../assets/img/referencia.png" />&nbsp;<b>INFORMACIÓN BANCARIA Y CREDITICIA</b>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control rounded-0" formControlName="informacionBancariaExpress"
+                        [(ngModel)]="formularioExpress.informacionBancariaExpress" rows="3"></textarea>
+                    <div
+                        *ngIf="reporteExpress.get('informacionBancariaExpress').errors && reporteExpress.get('informacionBancariaExpress').dirty">
+                        <p class="text-danger"
+                            *ngIf="reporteExpress.get('informacionBancariaExpress').hasError('required')">
+                            <font size="2">Información Bancaria y Crediticia es requerida</font>
+                        </p>
+                        <p class="text-danger"
+                            *ngIf="reporteExpress.get('informacionBancariaExpress').hasError('minlength')">
+                            <font size="2">Minimo de 3 Caracteres</font>
+                        </p>
+                        <p class="text-danger"
+                            *ngIf="reporteExpress.get('informacionBancariaExpress').hasError('maxlength')">
+                            <font size="2">Maximon de 30 Caracteres</font>
+                        </p>
+                        <p class="text-danger"
+                            *ngIf="reporteExpress.controls['informacionBancariaExpress'].touched && reporteExpress.controls['informacionBancariaExpress'].hasError('pattern')">
+                            <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                            </font>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-header text-white bg-dark "><img
+                        src="../../assets/img/referencia.png" />&nbsp;<b>INFORMACIÓN FINANCIERA (TOTALES (USD)
+                        UNIDADES)</b>
+                </div>
+                <div class="card-body ">
+                    <div class="row ">
+
+                        <table class="table table-bordered" id="tableColor">
+
+                            <tbody>
+                                <tr style="background: yellow">
+                                    <td style="text-align:center;"><b></b> </td>
+                                    <td style="text-align:center;"><b>AÑO 2017</b> </td>
+                                    <td style="text-align:center;"><b>AÑO 2018</b> </td>
+                                </tr>
+                                <tr>
+
+                                    <td scope="col">VENTAS</td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.ventas2014Express"
+                                            formControlName="ventas2014Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('ventas2014Express').errors && reporteExpress.get('ventas2014Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('ventas2014Express').hasError('required')">
+                                                <font size="2">Ventas es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('ventas2014Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('ventas2014Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.ventas2015Express"
+                                            formControlName="ventas2015Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('ventas2015Express').errors && reporteExpress.get('ventas2015Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('ventas2015Express').hasError('required')">
+                                                <font size="2">Ventas es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('ventas2015Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('ventas2015Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+
+                                    <td scope="col">ACTIVOS</td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.activos2014Express"
+                                            formControlName="activos2014Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('activos2014Express').errors && reporteExpress.get('activos2014Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('activos2014Express').hasError('required')">
+                                                <font size="2">Activos es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('activos2014Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('activos2014Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.activos2015Express"
+                                            formControlName="activos2015Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('activos2015Express').errors && reporteExpress.get('activos2015Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('activos2015Express').hasError('required')">
+                                                <font size="2">Activos es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('activos2015Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('activos2015Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="col">PASIVOS</td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.pasivo2014Express"
+                                            formControlName="pasivo2014Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('pasivo2014Express').errors && reporteExpress.get('pasivo2014Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('pasivo2014Express').hasError('required')">
+                                                <font size="2">Pasivos es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('pasivo2014Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('pasivo2014Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.pasivo2015Express"
+                                            formControlName="pasivo2015Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('pasivo2015Express').errors && reporteExpress.get('pasivo2015Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('pasivo2015Express').hasError('required')">
+                                                <font size="2">Pasivos es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('pasivo2015Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('pasivo2015Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="col">PATRIMONIO</td>
+                                    <td scope="col">
+                                        <input class="form-control "
+                                            [(ngModel)]="formularioExpress.patrimonio2014Express"
+                                            formControlName="patrimonio2014Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('patrimonio2014Express').errors && reporteExpress.get('patrimonio2014Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('patrimonio2014Express').hasError('required')">
+                                                <font size="2">Patrimonio es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('patrimonio2014Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('patrimonio2014Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <input class="form-control "
+                                            [(ngModel)]="formularioExpress.patrimonio2015Express"
+                                            formControlName="patrimonio2015Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('patrimonio2015Express').errors && reporteExpress.get('patrimonio2015Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('patrimonio2015Express').hasError('required')">
+                                                <font size="2">Patrimonio es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('patrimonio2015Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('patrimonio2015Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">UTILIDAD</td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.utilidad2014Express"
+                                            formControlName="utilidad2014Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('utilidad2014Express').errors && reporteExpress.get('utilidad2014Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('utilidad2014Express').hasError('required')">
+                                                <font size="2">Utilidad es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('utilidad2014Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('utilidad2014Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+                                    <td scope="col">
+                                        <input class="form-control " [(ngModel)]="formularioExpress.utilidad2015Express"
+                                            formControlName="utilidad2015Express" type="text ">
+                                        <div
+                                            *ngIf="reporteExpress.get('utilidad2015Express').errors && reporteExpress.get('utilidad2015Express').dirty">
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('utilidad2015Express').hasError('required')">
+                                                <font size="2">Utilidad es requerida</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('utilidad2015Express').hasError('minlength')">
+                                                <font size="2">Minimo de 3 Caracteres</font>
+                                            </p>
+                                            <p class="text-danger"
+                                                *ngIf="reporteExpress.get('utilidad2015Express').hasError('maxlength')">
+                                                <font size="2">Maximon de 30 Caracteres</font>
+                                            </p>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-header text-white bg-dark "><img
+                        src="../../assets/img/referencia.png" />&nbsp;<b>CONSULTA DE PREDIOS</b>
+                </div>
+                <table class="table table-bordered" id="tableColor">
+
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center;"><b>DESCRIPCIÓN</b> </td>
+                            <td style="text-align:center;"><b>ÁREA (MS2)</b> </td>
+                            <td style="text-align:center;"><b>AVALUO (USD)</b> </td>
+                        </tr>
+                        <tr>
+
+                            <td scope="col">TERRENO</td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.terrenoAreaExpress"
+                                    formControlName="terrenoAreaExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('terrenoAreaExpress').errors && reporteExpress.get('terrenoAreaExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('terrenoAreaExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('terrenoAreaExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('terrenoAreaExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['terrenoAreaExpress'].touched && reporteExpress.controls['terrenoAreaExpress'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.terrenoAvaluoExpress"
+                                    formControlName="terrenoAvaluoExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('terrenoAvaluoExpress').errors && reporteExpress.get('terrenoAvaluoExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('terrenoAvaluoExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('terrenoAvaluoExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('terrenoAvaluoExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td scope="col">CONSTRUCCIÓN</td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.construccionAreaExpress"
+                                    formControlName="construccionAreaExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('construccionAreaExpress').errors && reporteExpress.get('construccionAreaExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('construccionAreaExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('construccionAreaExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('construccionAreaExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.construccionAvaluoExpress"
+                                    formControlName="construccionAvaluoExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('construccionAvaluoExpress').errors && reporteExpress.get('construccionAvaluoExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('construccionAvaluoExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('construccionAvaluoExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('construccionAvaluoExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td scope="col"><b>AVALUO TOTAL</b></td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.avaluoTotalAreaExpress"
+                                    formControlName="avaluoTotalAreaExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('avaluoTotalAreaExpress').errors && reporteExpress.get('avaluoTotalAreaExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoTotalAreaExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoTotalAreaExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoTotalAreaExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.avaluoTotalAvaluoExpress"
+                                    formControlName="avaluoTotalAvaluoExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('avaluoTotalAvaluoExpress').errors && reporteExpress.get('avaluoTotalAvaluoExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoTotalAvaluoExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoTotalAvaluoExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoTotalAvaluoExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="card-header text-white bg-dark "><img
+                        src="../../assets/img/referencia.png" />&nbsp;<b>VEHICULOS</b>
+                </div>
+                <table class="table table-bordered" id="tableColor">
+
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center;"><b>MARCA</b> </td>
+                            <td style="text-align:center;"><b>TIPO</b> </td>
+                            <td style="text-align:center;"><b>AÑO</b> </td>
+                            <td style="text-align:center;"><b>AVALUO USD</b> </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.marcaExpress"
+                                    formControlName="marcaExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('marcaExpress').errors && reporteExpress.get('marcaExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['marcaExpress'].touched && reporteExpress.controls['marcaExpress'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.tipoExpress"
+                                    formControlName="tipoExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('tipoExpress').errors && reporteExpress.get('tipoExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['tipoExpress'].touched && reporteExpress.controls['tipoExpress'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.fechavahiculosExpress"
+                                    formControlName="fechavahiculosExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('fechavahiculosExpress').errors && reporteExpress.get('fechavahiculosExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['fechavahiculosExpress'].touched && reporteExpress.controls['fechavahiculosExpress'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.avaluoExpress"
+                                    formControlName="avaluoExpress" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('avaluoExpress').errors && reporteExpress.get('avaluoExpress').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['avaluoExpress'].touched && reporteExpress.controls['avaluoExpress'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.marcaExpress1"
+                                    formControlName="marcaExpress1" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('marcaExpress1').errors && reporteExpress.get('marcaExpress1').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress1').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress1').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress1').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['marcaExpress1'].touched && reporteExpress.controls['marcaExpress1'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.tipoExpress1"
+                                    formControlName="tipoExpress1" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('tipoExpress1').errors && reporteExpress.get('tipoExpress1').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress1').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress1').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress1').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['tipoExpress1'].touched && reporteExpress.controls['tipoExpress1'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.fechavahiculosExpress1"
+                                    formControlName="fechavahiculosExpress1" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('fechavahiculosExpress1').errors && reporteExpress.get('fechavahiculosExpress1').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress1').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress1').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress1').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['fechavahiculosExpress1'].touched && reporteExpress.controls['fechavahiculosExpress1'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.avaluoExpress1"
+                                    formControlName="avaluoExpress1" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('avaluoExpress1').errors && reporteExpress.get('avaluoExpress1').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress1').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress1').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress1').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['avaluoExpress1'].touched && reporteExpress.controls['avaluoExpress1'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.marcaExpress2"
+                                    formControlName="marcaExpress2" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('marcaExpress2').errors && reporteExpress.get('marcaExpress2').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress2').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress2').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress2').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['marcaExpress2'].touched && reporteExpress.controls['marcaExpress2'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.tipoExpress2"
+                                    formControlName="tipoExpress2" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('tipoExpress2').errors && reporteExpress.get('tipoExpress2').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress2').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress2').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress2').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['tipoExpress2'].touched && reporteExpress.controls['tipoExpress2'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.fechavahiculosExpress2"
+                                    formControlName="fechavahiculosExpress2" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('fechavahiculosExpress2').errors && reporteExpress.get('fechavahiculosExpress2').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress2').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress2').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress2').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['fechavahiculosExpress2'].touched && reporteExpress.controls['fechavahiculosExpress2'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.avaluoExpress2"
+                                    formControlName="avaluoExpress2" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('avaluoExpress2').errors && reporteExpress.get('avaluoExpress2').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress2').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress2').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress2').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['avaluoExpress2'].touched && reporteExpress.controls['avaluoExpress2'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.marcaExpress3"
+                                    formControlName="marcaExpress3" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('marcaExpress3').errors && reporteExpress.get('marcaExpress3').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress3').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress3').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress3').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['marcaExpress3'].touched && reporteExpress.controls['marcaExpress3'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.tipoExpress3"
+                                    formControlName="tipoExpress3" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('tipoExpress3').errors && reporteExpress.get('tipoExpress3').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress3').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress3').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress3').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['tipoExpress3'].touched && reporteExpress.controls['tipoExpress3'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.fechavahiculosExpress3"
+                                    formControlName="fechavahiculosExpress3" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('fechavahiculosExpress3').errors && reporteExpress.get('fechavahiculosExpress3').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress3').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress3').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress3').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['fechavahiculosExpress3'].touched && reporteExpress.controls['fechavahiculosExpress3'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.avaluoExpress3"
+                                    formControlName="avaluoExpress3" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('avaluoExpress3').errors && reporteExpress.get('avaluoExpress3').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress3').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress3').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress3').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['avaluoExpress3'].touched && reporteExpress.controls['avaluoExpress3'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.marcaExpress4"
+                                    formControlName="marcaExpress4" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('marcaExpress4').errors && reporteExpress.get('marcaExpress4').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress4').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress4').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('marcaExpress4').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['marcaExpress4'].touched && reporteExpress.controls['marcaExpress4'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.tipoExpress4"
+                                    formControlName="tipoExpress4" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('tipoExpress4').errors && reporteExpress.get('tipoExpress4').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress4').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress4').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('tipoExpress4').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['tipoExpress4'].touched && reporteExpress.controls['tipoExpress4'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.fechavahiculosExpress4"
+                                    formControlName="fechavahiculosExpress4" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('fechavahiculosExpress4').errors && reporteExpress.get('fechavahiculosExpress4').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress4').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress4').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('fechavahiculosExpress4').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['fechavahiculosExpress4'].touched && reporteExpress.controls['fechavahiculosExpress4'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+                            <td scope="col">
+                                <input class="form-control " [(ngModel)]="formularioExpress.avaluoExpress4"
+                                    formControlName="avaluoExpress4" type="text ">
+                                <div
+                                    *ngIf="reporteExpress.get('avaluoExpress4').errors && reporteExpress.get('avaluoExpress4').dirty">
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress4').hasError('required')">
+                                        <font size="2">Campo requerido</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress4').hasError('minlength')">
+                                        <font size="2">Minimo de 3 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.get('avaluoExpress4').hasError('maxlength')">
+                                        <font size="2">Maximon de 30 Caracteres</font>
+                                    </p>
+                                    <p class="text-danger"
+                                        *ngIf="reporteExpress.controls['avaluoExpress4'].touched && reporteExpress.controls['avaluoExpress4'].hasError('pattern')">
+                                        <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                                        </font>
+                                    </p>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="card-header text-white bg-dark "><img
+                        src="../../assets/img/referencia.png" />&nbsp;<b>OBSERVACIONES</b>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control rounded-0" [(ngModel)]="formularioExpress.observacionesExpress"
+                        formControlName="observacionesExpress" rows="3"></textarea>
+                    <div
+                        *ngIf="reporteExpress.get('observacionesExpress').errors && reporteExpress.get('observacionesExpress').dirty">
+                        <p class="text-danger" *ngIf="reporteExpress.get('observacionesExpress').hasError('required')">
+                            <font size="2">Campo requerido</font>
+                        </p>
+                        <p class="text-danger" *ngIf="reporteExpress.get('observacionesExpress').hasError('minlength')">
+                            <font size="2">Minimo de 3 Caracteres</font>
+                        </p>
+                        <p class="text-danger" *ngIf="reporteExpress.get('observacionesExpress').hasError('maxlength')">
+                            <font size="2">Maximon de 30 Caracteres</font>
+                        </p>
+                        <p class="text-danger"
+                            *ngIf="reporteExpress.controls['observacionesExpress'].touched && reporteExpress.controls['observacionesExpress'].hasError('pattern')">
+                            <font size="2"> Este campo puede contener caracteres entre "A-Za-z"
+                            </font>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div>
+                    <button type="submit" class="btn btn-success m-1">Guardar información </button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
